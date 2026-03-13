@@ -1,14 +1,14 @@
 <?php
 
+use App\Http\Controllers\GroceryController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\OrderController;
 
-Route::get('/orders', [OrderController::class, 'index']);
-Route::get('/orders/{id}', [OrderController::class, 'show']);
+Route::get('/groceries', [GroceryController::class, 'index']);
+Route::get('/groceries/{id}', [GroceryController::class, 'show']);
 
-Route::post('/orders', [OrderController::class, 'store']);
+Route::post('/groceries', [GroceryController::class, 'store']);
 
-Route::put('/orders/{id}', [OrderController::class, 'update']);
-Route::patch('/orders/{id}', [OrderController::class, 'update']);
+Route::put('/groceries/{id}', [GroceryController::class, 'update']);
+Route::patch('/groceries/{id}', [GroceryController::class, 'update']);
 
-Route::delete('/orders/{id}', [OrderController::class, 'destroy']);
+Route::delete('/groceries/{id}', [GroceryController::class, 'destroy']);
