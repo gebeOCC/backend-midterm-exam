@@ -17,19 +17,15 @@ return new class extends Migration
             $table->string('order_number')->unique();
             $table->decimal('total_amount', 10, 2);
 
-            // Enum: Statuses common in PH e-commerce (Lazada/Shopee style)
             $table->enum('status', ['pending', 'processing', 'shipped', 'delivered', 'cancelled'])->default('pending');
 
-            // Required address field
             $table->text('address');
 
-            // Optional: Tracking code for J&T, Flash, or LBC
             $table->string('tracking_code')->nullable();
 
             $table->timestamps();
         });
 
-        // Batch inserting Philippine-friendly data
         $orders = [
             [
                 'order_number' => 'PH-2026-001',
